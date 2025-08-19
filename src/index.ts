@@ -85,38 +85,78 @@
 // all = "Osama";
 
 
-type Buttons = {
-  up: string,
-  right: string,
-  down: string,
-  left: string
-}
+// type Buttons = {
+//   up: string,
+//   right: string,
+//   down: string,
+//   left: string
+// }
 
-type Last = Buttons & {
-  x: boolean
-}
+// type Last = Buttons & {
+//   x: boolean
+// }
 
-function getActions(btns: Last) {
-  console.log(`Action For Button Up Is ${btns.up}`);
-  console.log(`Action For Button Right Is ${btns.right}`);
-  console.log(`Action For Button Down Is ${btns.down}`);
-  console.log(`Action For Button Left Is ${btns.left}`);
-}
+// function getActions(btns: Last) {
+//   console.log(`Action For Button Up Is ${btns.up}`);
+//   console.log(`Action For Button Right Is ${btns.right}`);
+//   console.log(`Action For Button Down Is ${btns.down}`);
+//   console.log(`Action For Button Left Is ${btns.left}`);
+// }
 
-getActions({ up: "Jump", right: "Go Right", down: "Go Down", left: "Go Left", x: true });
+// getActions({ up: "Jump", right: "Go Right", down: "Go Down", left: "Go Left", x: true });
 
-type User = {
-  name: string,
-  age: number,
-  country?: string
-}
-function showUserInfo(user: User) {
-  console.log(`Name: ${user.name}`);
-  console.log(`Age: ${user.age}`);
-  if (user.country) {
-    console.log(`Country: ${user.country}`);
+// type User = {
+//   name: string,
+//   age: number,
+//   country?: string
+// }
+// function showUserInfo(user: User) {
+//   console.log(`Name: ${user.name}`);
+//   console.log(`Age: ${user.age}`);
+//   if (user.country) {
+//     console.log(`Country: ${user.country}`);
+//   } else {
+//     console.log("Country: Not Provided");
+//   }
+// }
+// showUserInfo({ name: "elagamy", age: 21 });
+
+
+/*
+  Data Types
+  - Literal Types
+*/
+
+type nums = 0 | 1 | -1;
+
+function compare(num1: number, num2: number) : nums {
+  if (num1 === num2) {
+    return 0;
+  } else if (num1 > num2) {
+    return 1;
   } else {
-    console.log("Country: Not Provided");
+    return -1;
   }
 }
-showUserInfo({ name: "elagamy", age: 21 });
+
+console.log(compare(20, 20)); // 0
+console.log(compare(20, 15)); // 1
+console.log(compare(20, 30)); // -1
+
+let myNumber: nums = 1;
+
+
+/*
+  Data Types
+  - Tuple
+*/
+
+let article: readonly [number, string, boolean] = [11, "Title One", true];
+article = [12, "Title Two", false];
+// article.push(100);
+console.log(article);
+
+const [id, title, published] = article;
+console.log(id);
+console.log(title);
+console.log(published);
