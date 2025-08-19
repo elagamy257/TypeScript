@@ -62,12 +62,61 @@
 
 // - Anonymous Function
 
+// const add = function(num1: number, num2: number) : number {
+//     return num1 + num2;
+// }
+// console.log(add(10, 20));
 
-const add = function(num1: number, num2: number) : number {
-    return num1 + num2;
+// const addWithArrow = (num1: number, num2: number) : number => num1 + num2;
+// console.log(addWithArrow(10, 20));
+
+/*
+  Data Types
+  - Type Alias
+*/
+
+// type st = string;
+// let theName: st = "elagamy";
+// theName = "aya";
+
+// type standnum = string | number;
+// let all: standnum = 10;
+// all = 100;
+// all = "Osama";
+
+
+type Buttons = {
+  up: string,
+  right: string,
+  down: string,
+  left: string
 }
-console.log(add(10, 20));
 
-const addWithArrow = (num1: number, num2: number) : number => num1 + num2;
-console.log(addWithArrow(10, 20));
+type Last = Buttons & {
+  x: boolean
+}
 
+function getActions(btns: Last) {
+  console.log(`Action For Button Up Is ${btns.up}`);
+  console.log(`Action For Button Right Is ${btns.right}`);
+  console.log(`Action For Button Down Is ${btns.down}`);
+  console.log(`Action For Button Left Is ${btns.left}`);
+}
+
+getActions({ up: "Jump", right: "Go Right", down: "Go Down", left: "Go Left", x: true });
+
+type User = {
+  name: string,
+  age: number,
+  country?: string
+}
+function showUserInfo(user: User) {
+  console.log(`Name: ${user.name}`);
+  console.log(`Age: ${user.age}`);
+  if (user.country) {
+    console.log(`Country: ${user.country}`);
+  } else {
+    console.log("Country: Not Provided");
+  }
+}
+showUserInfo({ name: "elagamy", age: 21 });
