@@ -218,29 +218,73 @@
   - Enums => Enumerations
 */
 
-function getHardSeconds() : number {
-  return 3;
+// function getHardSeconds() : number {
+//   return 3;
+// }
+
+// enum Kids {
+//   Five = 25,
+//   Seven = 20,
+//   Ten = 15
+// }
+
+// enum Level {
+//   Kid = Kids.Ten,
+//   Easy = 9,
+//   Medium = Easy - 3,
+//   Hard = getHardSeconds()
+// }
+
+// let lvl: string = "Easy";
+
+// if (lvl === "Easy") {
+//   console.log(`The Level Is ${lvl} And Number Of Seconds Is ${Level.Hard}`);
+// }
+
+
+/*
+  Data Types
+  - Type Assertions
+*/
+
+// let myImg = document.getElementById("my-img") as HTMLImageElement;
+// let myImg = <HTMLImageElement> document.getElementById("my-img");
+// console.log(myImg.src);
+
+// let data: any = 1000;
+// console.log((data as string).repeat(3));
+
+
+/*
+  Data Types
+  - Union And Intersection Types
+*/
+
+// let all: number | string = 100;
+
+type A = {
+  one: string,
+  two: number,
+  three: boolean
 }
 
-enum Kids {
-  Five = 25,
-  Seven = 20,
-  Ten = 15
+type B = A & {
+  four: number
 }
 
-enum Level {
-  Kid = Kids.Ten,
-  Easy = 9,
-  Medium = Easy - 3,
-  Hard = getHardSeconds()
+type C = {
+  five: boolean
 }
 
-let lvl: string = "Easy";
+type mix = A & C;
 
-if (lvl === "Easy") {
-  console.log(`The Level Is ${lvl} And Number Of Seconds Is ${Level.Hard}`);
+function getActions(btns: mix) {
+  console.log(`Hello ${btns.one}`);
+  console.log(`Hello ${btns.two}`);
+  console.log(`Hello ${btns.three}`);
+  console.log(`Hello ${btns.five}`);
 }
 
-
+getActions({ one: "String", two: 100, three: true, five: true });
 
 
