@@ -127,23 +127,23 @@
   - Literal Types
 */
 
-type nums = 0 | 1 | -1;
+// type nums = 0 | 1 | -1;
 
-function compare(num1: number, num2: number) : nums {
-  if (num1 === num2) {
-    return 0;
-  } else if (num1 > num2) {
-    return 1;
-  } else {
-    return -1;
-  }
-}
+// function compare(num1: number, num2: number) : nums {
+//   if (num1 === num2) {
+//     return 0;
+//   } else if (num1 > num2) {
+//     return 1;
+//   } else {
+//     return -1;
+//   }
+// }
 
-console.log(compare(20, 20)); // 0
-console.log(compare(20, 15)); // 1
-console.log(compare(20, 30)); // -1
+// console.log(compare(20, 20)); // 0
+// console.log(compare(20, 15)); // 1
+// console.log(compare(20, 30)); // -1
 
-let myNumber: nums = 1;
+// let myNumber: nums = 1;
 
 
 /*
@@ -151,12 +151,42 @@ let myNumber: nums = 1;
   - Tuple
 */
 
-let article: readonly [number, string, boolean] = [11, "Title One", true];
-article = [12, "Title Two", false];
-// article.push(100);
-console.log(article);
+// let article: readonly [number, string, boolean] = [11, "Title One", true];
+// article = [12, "Title Two", false];
+// // article.push(100);
+// console.log(article);
 
-const [id, title, published] = article;
-console.log(id);
-console.log(title);
-console.log(published);
+// const [id, title, published] = article;
+// console.log(id);
+// console.log(title);
+// console.log(published);
+
+
+/*
+  Data Types
+  - Void
+  - Never
+*/
+
+function logging(msg: string) : void {
+  console.log(msg);
+  return;
+}
+
+console.log(logging("Iam A Message"));
+console.log("Test");
+
+const fail = (msg: string) => {
+  throw new Error(msg);
+  // return 10;
+}
+
+function alwaysLog(name: string) : never {
+  while(true) {
+    console.log(name);
+  }
+}
+
+alwaysLog("elagamy");
+// console.log("Test");
+
