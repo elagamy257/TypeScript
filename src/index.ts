@@ -168,25 +168,79 @@
   - Never
 */
 
-function logging(msg: string) : void {
-  console.log(msg);
-  return;
-}
+// function logging(msg: string) : void {
+//   console.log(msg);
+//   return;
+// }
 
-console.log(logging("Iam A Message"));
-console.log("Test");
-
-const fail = (msg: string) => {
-  throw new Error(msg);
-  // return 10;
-}
-
-function alwaysLog(name: string) : never {
-  while(true) {
-    console.log(name);
-  }
-}
-
-alwaysLog("elagamy");
+// console.log(logging("Iam A Message"));
 // console.log("Test");
+
+// const fail = (msg: string) => {
+//   throw new Error(msg);
+//   // return 10;
+// }
+
+// function alwaysLog(name: string) : never {
+//   while(true) {
+//     console.log(name);
+//   }
+// }
+
+// alwaysLog("elagamy");
+// // console.log("Test");
+
+/*
+  Data Types
+  - Enums => Enumerations
+*/
+
+// const KIDS = 15;
+// const EASY = 9;
+// const MEDIUM = 6;
+// const HARD = 3;
+
+// enum Level {
+//   Kids = 15,
+//   Easy = 9,
+//   Medium = 6,
+//   Hard = 3
+// }
+
+// let lvl: string = "Easy";
+
+// if (lvl === "Easy") {
+//   console.log(`The Level Is ${lvl} And Number Of Seconds Is ${Level.Easy}`);
+// }
+
+/*
+  Data Types
+  - Enums => Enumerations
+*/
+
+function getHardSeconds() : number {
+  return 3;
+}
+
+enum Kids {
+  Five = 25,
+  Seven = 20,
+  Ten = 15
+}
+
+enum Level {
+  Kid = Kids.Ten,
+  Easy = 9,
+  Medium = Easy - 3,
+  Hard = getHardSeconds()
+}
+
+let lvl: string = "Easy";
+
+if (lvl === "Easy") {
+  console.log(`The Level Is ${lvl} And Number Of Seconds Is ${Level.Hard}`);
+}
+
+
+
 
