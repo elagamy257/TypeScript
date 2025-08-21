@@ -353,53 +353,101 @@
   - Interface Method And Parameters
 */
 
-interface User {
-  id: number;
-  username: string;
-  country: string;
-  sayHello() : string;
-  sayWelcome: () => string;
-  getDouble(num: number) : number;
-}
+// interface User {
+//   id: number;
+//   username: string;
+//   country: string;
+//   sayHello() : string;
+//   sayWelcome: () => string;
+//   getDouble(num: number) : number;
+// }
 
-let user: User = {
-  id: 100,
-  username: "Elzero",
-  country: "Egypt",
-  sayHello() {
-    return `Hello ${this.username}`;
-  },
-  sayWelcome: () => {
-    return `Welcome ${user.username}`;
-  },
-  getDouble(n) {
-    return n * 2;
-  }
-}
+// let user: User = {
+//   id: 100,
+//   username: "Elzero",
+//   country: "Egypt",
+//   sayHello() {
+//     return `Hello ${this.username}`;
+//   },
+//   sayWelcome: () => {
+//     return `Welcome ${user.username}`;
+//   },
+//   getDouble(n) {
+//     return n * 2;
+//   }
+// }
 
-console.log(user.id);
-console.log(user.sayHello());
-console.log(user.sayWelcome());
-console.log(user.getDouble(100));
-
+// console.log(user.id);
+// console.log(user.sayHello());
+// console.log(user.sayWelcome());
+// console.log(user.getDouble(100));
 
 /*
   - ReOpen The Interface And Use Cases
 */
 
+// // Homepage
+// interface Settings {
+//   readonly theme: boolean;
+//   font: string;
+// }
+
+// // Articles Page
+// interface Settings {
+//   sidebar: boolean;
+// }
+
+// // Contact Page
+// interface Settings {
+//   external: boolean;
+// }
+
+// let userSettings: Settings = {
+//   theme: true,
+//   font: "Open Sans",
+//   sidebar: false,
+//   external: true
+// }
+
+/*
+  - Extending Interfaces
+*/
+
+interface User {
+  id: number;
+  username: string;
+  country: string;
+}
+
+interface Moderator {
+  role: string | number;
+}
+
+interface Admin extends User,Moderator {
+  protect?: boolean;
+}
+
+let user: Admin = {
+  id: 100,
+  username: "Elzero",
+  country: "Egypt",
+  role: "Mod",
+  protect: true
+}
+
+console.log(user.id);
+
+/*
+  Interface
+*/
+
+// let el = document.getElementById("id") as HTMLElement;
+
 // Homepage
-interface Settings {
+type Settings ={
   readonly theme: boolean;
   font: string;
-}
-
-// Articles Page
-interface Settings {
   sidebar: boolean;
-}
-
-// Contact Page
-interface Settings {
   external: boolean;
 }
 
