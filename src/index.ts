@@ -288,3 +288,63 @@
 // getActions({ one: "String", two: 100, three: true, five: true });
 
 
+/*
+  Type Annotations With Object
+*/
+
+let myObject: {
+  readonly username: string,
+  id: number,
+  hire?: boolean,
+  skills: {
+    one: string,
+    two: string
+  }
+} = {
+  username: "elagamy",
+  id: 100,
+  hire: true,
+  skills: {
+    one: "HTML",
+    two: "CSS"
+  }
+};
+
+// myObject.username = "aya";
+myObject.id = 101;
+myObject.hire = false;
+
+console.log(myObject.username);
+console.log(myObject.id);
+console.log(myObject.hire);
+console.log(myObject.skills.one);
+
+
+/*
+  Interface
+*/
+
+interface User {
+  id?: number,
+  readonly username: string,
+  country: string
+}
+
+let user: User = {
+  id: 100,
+  username: "elagamy",
+  country: "Egypt"
+}
+
+user.country = "Syria";
+
+console.log(user);
+
+function getData(data: User) {
+  console.log(`Id Is ${data.id}`);
+  console.log(`Username Is ${data.username}`);
+  console.log(`Country Is ${data.country}`);
+}
+
+getData({ id: 200, username: "aya", country: "KSA" });
+
