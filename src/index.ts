@@ -413,29 +413,29 @@
   - Extending Interfaces
 */
 
-interface User {
-  id: number;
-  username: string;
-  country: string;
-}
+// interface User {
+//   id: number;
+//   username: string;
+//   country: string;
+// }
 
-interface Moderator {
-  role: string | number;
-}
+// interface Moderator {
+//   role: string | number;
+// }
 
-interface Admin extends User,Moderator {
-  protect?: boolean;
-}
+// interface Admin extends User,Moderator {
+//   protect?: boolean;
+// }
 
-let user: Admin = {
-  id: 100,
-  username: "Elzero",
-  country: "Egypt",
-  role: "Mod",
-  protect: true
-}
+// let user: Admin = {
+//   id: 100,
+//   username: "Elzero",
+//   country: "Egypt",
+//   role: "Mod",
+//   protect: true
+// }
 
-console.log(user.id);
+// console.log(user.id);
 
 /*
   Interface
@@ -444,16 +444,69 @@ console.log(user.id);
 // let el = document.getElementById("id") as HTMLElement;
 
 // Homepage
-type Settings ={
-  readonly theme: boolean;
-  font: string;
-  sidebar: boolean;
-  external: boolean;
+// type Settings ={
+//   readonly theme: boolean;
+//   font: string;
+//   sidebar: boolean;
+//   external: boolean;
+// }
+
+// let userSettings: Settings = {
+//   theme: true,
+//   font: "Open Sans",
+//   sidebar: false,
+//   external: true
+// }
+
+
+/*
+  Type Annotations With Class
+*/
+
+class User {
+  u: string;
+  s: number;
+  msg: () => string;
+  constructor(username: string, salary: number) {
+    this.u = username;
+    this.s = salary;
+    this.msg = function () {
+      return `Hello ${this.u} Your Salary Is ${this.s}`;
+    }
+  }
+  sayMsg() {
+    return `Hello ${this.u} Your Salary Is ${this.s}`;
+  }
 }
 
-let userSettings: Settings = {
-  theme: true,
-  font: "Open Sans",
-  sidebar: false,
-  external: true
+let userOne = new User("elagamy", 6000);
+
+console.log(userOne.u);
+console.log(userOne.s);
+console.log(userOne.msg());
+console.log(userOne.sayMsg());
+
+
+/*
+  Class
+  
+*/
+
+class User1 {
+  msg: () => string;
+  constructor(private username: string, protected salary: number,public readonly address: string) {
+    this.msg = function () {
+      return `Hello ${this.username} Your Salary Is ${this.salary}`;
+    }
+  }
+  sayMsg() {
+    return `Hello ${this.username} Your Salary Is ${this.salary}`;
+  }
 }
+
+let userTwo = new User1("elagamy", 6000, "Cairo");
+
+// console.log(userTwo.username);
+// console.log(userTwo.salary);
+console.log(userTwo.msg());
+console.log(userTwo.sayMsg());
