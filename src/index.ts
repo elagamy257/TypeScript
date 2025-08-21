@@ -292,59 +292,120 @@
   Type Annotations With Object
 */
 
-let myObject: {
-  readonly username: string,
-  id: number,
-  hire?: boolean,
-  skills: {
-    one: string,
-    two: string
-  }
-} = {
-  username: "elagamy",
-  id: 100,
-  hire: true,
-  skills: {
-    one: "HTML",
-    two: "CSS"
-  }
-};
+// let myObject: {
+//   readonly username: string,
+//   id: number,
+//   hire?: boolean,
+//   skills: {
+//     one: string,
+//     two: string
+//   }
+// } = {
+//   username: "elagamy",
+//   id: 100,
+//   hire: true,
+//   skills: {
+//     one: "HTML",
+//     two: "CSS"
+//   }
+// };
 
-// myObject.username = "aya";
-myObject.id = 101;
-myObject.hire = false;
+// // myObject.username = "aya";
+// myObject.id = 101;
+// myObject.hire = false;
 
-console.log(myObject.username);
-console.log(myObject.id);
-console.log(myObject.hire);
-console.log(myObject.skills.one);
+// console.log(myObject.username);
+// console.log(myObject.id);
+// console.log(myObject.hire);
+// console.log(myObject.skills.one);
 
 
 /*
   Interface
 */
 
+// interface User {
+//   id?: number,
+//   readonly username: string,
+//   country: string
+// }
+
+// let user: User = {
+//   id: 100,
+//   username: "elagamy",
+//   country: "Egypt"
+// }
+
+// user.country = "Syria";
+
+// console.log(user);
+
+// function getData(data: User) {
+//   console.log(`Id Is ${data.id}`);
+//   console.log(`Username Is ${data.username}`);
+//   console.log(`Country Is ${data.country}`);
+// }
+
+// getData({ id: 200, username: "aya", country: "KSA" });
+
+
+/*
+  - Interface Method And Parameters
+*/
+
 interface User {
-  id?: number,
-  readonly username: string,
-  country: string
+  id: number;
+  username: string;
+  country: string;
+  sayHello() : string;
+  sayWelcome: () => string;
+  getDouble(num: number) : number;
 }
 
 let user: User = {
   id: 100,
-  username: "elagamy",
-  country: "Egypt"
+  username: "Elzero",
+  country: "Egypt",
+  sayHello() {
+    return `Hello ${this.username}`;
+  },
+  sayWelcome: () => {
+    return `Welcome ${user.username}`;
+  },
+  getDouble(n) {
+    return n * 2;
+  }
 }
 
-user.country = "Syria";
+console.log(user.id);
+console.log(user.sayHello());
+console.log(user.sayWelcome());
+console.log(user.getDouble(100));
 
-console.log(user);
 
-function getData(data: User) {
-  console.log(`Id Is ${data.id}`);
-  console.log(`Username Is ${data.username}`);
-  console.log(`Country Is ${data.country}`);
+/*
+  - ReOpen The Interface And Use Cases
+*/
+
+// Homepage
+interface Settings {
+  readonly theme: boolean;
+  font: string;
 }
 
-getData({ id: 200, username: "aya", country: "KSA" });
+// Articles Page
+interface Settings {
+  sidebar: boolean;
+}
 
+// Contact Page
+interface Settings {
+  external: boolean;
+}
+
+let userSettings: Settings = {
+  theme: true,
+  font: "Open Sans",
+  sidebar: false,
+  external: true
+}
