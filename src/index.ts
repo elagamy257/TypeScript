@@ -463,28 +463,28 @@
   Type Annotations With Class
 */
 
-class User {
-  u: string;
-  s: number;
-  msg: () => string;
-  constructor(username: string, salary: number) {
-    this.u = username;
-    this.s = salary;
-    this.msg = function () {
-      return `Hello ${this.u} Your Salary Is ${this.s}`;
-    }
-  }
-  sayMsg() {
-    return `Hello ${this.u} Your Salary Is ${this.s}`;
-  }
-}
+// class User {
+//   u: string;
+//   s: number;
+//   msg: () => string;
+//   constructor(username: string, salary: number) {
+//     this.u = username;
+//     this.s = salary;
+//     this.msg = function () {
+//       return `Hello ${this.u} Your Salary Is ${this.s}`;
+//     }
+//   }
+//   sayMsg() {
+//     return `Hello ${this.u} Your Salary Is ${this.s}`;
+//   }
+// }
 
-let userOne = new User("elagamy", 6000);
+// let userOne = new User("elagamy", 6000);
 
-console.log(userOne.u);
-console.log(userOne.s);
-console.log(userOne.msg());
-console.log(userOne.sayMsg());
+// console.log(userOne.u);
+// console.log(userOne.s);
+// console.log(userOne.msg());
+// console.log(userOne.sayMsg());
 
 
 /*
@@ -492,21 +492,83 @@ console.log(userOne.sayMsg());
   
 */
 
-class User1 {
-  msg: () => string;
-  constructor(private username: string, protected salary: number,public readonly address: string) {
-    this.msg = function () {
-      return `Hello ${this.username} Your Salary Is ${this.salary}`;
-    }
+// class User1 {
+//   msg: () => string;
+//   constructor(private username: string, protected salary: number,public readonly address: string) {
+//     this.msg = function () {
+//       return `Hello ${this.username} Your Salary Is ${this.salary}`;
+//     }
+//   }
+//   sayMsg() {
+//     return `Hello ${this.username} Your Salary Is ${this.salary}`;
+//   }
+// }
+
+// let userTwo = new User1("elagamy", 6000, "Cairo");
+
+// // console.log(userTwo.username);
+// // console.log(userTwo.salary);
+// console.log(userTwo.msg());
+// console.log(userTwo.sayMsg());
+
+
+/*
+  Class
+  - Get And Set Accessors
+*/
+
+// class User {
+//   public get username(): string {
+//     return this._username;
+//   }
+//   public set username(value: string) {
+//     this._username = value;
+//   }
+//   msg: () => string;
+//   constructor(private _username: string, public salary: number, public readonly address: string) {
+//     this.msg = function () {
+//       return `Hello ${this._username} Your Salary Is ${this.salary}`;
+//     }
+//   }
+//   sayMsg() {
+//     return `Hello ${this._username} Your Salary Is ${this.salary}`;
+//   }
+  // get username() : string {
+  //   return this._username;
+  // }
+  // set username(value: string) {
+  //   this._username = value;
+  // }
+// }
+
+// let userOne = new User("elagamy", 6000, "Cairo");
+
+// console.log(userOne.username);
+// userOne.username = "Ahmed";
+// console.log(userOne.username);
+// console.log(userOne.salary);
+// console.log(userOne.msg());
+// console.log(userOne.sayMsg());
+
+
+/*
+  Class
+  - Static Members
+  --- Don't Use "name, length, call"
+*/
+
+class User {
+  private static created: number = 0;
+  static getCount() : void {
+    console.log(`${this.created} Objects Created`);
   }
-  sayMsg() {
-    return `Hello ${this.username} Your Salary Is ${this.salary}`;
+  constructor(public username: string) {
+    User.created++;
   }
 }
 
-let userTwo = new User1("elagamy", 6000, "Cairo");
-
-// console.log(userTwo.username);
-// console.log(userTwo.salary);
-console.log(userTwo.msg());
-console.log(userTwo.sayMsg());
+let u1 = new User("Elzero");
+let u2 = new User("Web");
+let u3 = new User("School");
+// console.log(User.created);
+User.getCount();
